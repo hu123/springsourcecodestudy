@@ -1,4 +1,6 @@
-import org.huluo.spring.ioc.bean.Student;
+package org.huluo.spring.ioc.propertyInjection;
+
+import org.huluo.spring.ioc.propertyInjection.bean.Student;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 

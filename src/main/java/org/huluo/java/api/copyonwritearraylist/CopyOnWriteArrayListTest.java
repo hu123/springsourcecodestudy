@@ -1,3 +1,5 @@
+package org.huluo.java.api.copyonwritearraylist;
+
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;

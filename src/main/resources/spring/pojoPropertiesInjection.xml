@@ -4,7 +4,7 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 
-    <bean id="student" class="org.huluo.spring.ioc.bean.Student">
+    <bean id="student" class="org.huluo.spring.ioc.propertyInjection.bean.Student">
         <property name="username" value="zhangsan"/>
         <property name="password" value="password"/>
     </bean>

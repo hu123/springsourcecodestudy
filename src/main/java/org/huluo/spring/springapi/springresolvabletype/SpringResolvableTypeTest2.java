@@ -1,3 +1,5 @@
+package org.huluo.spring.springapi.springresolvabletype;
+
 import org.springframework.core.ResolvableType;
 
 import java.lang.reflect.Field;

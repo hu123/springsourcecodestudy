@@ -1,9 +1,8 @@
+package org.huluo.spring.springapi.springresolvabletype;
+
 import org.springframework.core.ResolvableType;
 
-import java.io.Serializable;
-import java.nio.file.attribute.UserDefinedFileAttributeView;
 import java.util.Arrays;
-import java.util.Iterator;
 
 class Test1<E> {
 
@@ -20,7 +19,6 @@ public class SpringResolvableTypeTest {
         System.out.println(resolvableType1.getGenerics()[0].getType());
 
 
-//        System.out.println(resolvableType1.getGenerics().length);
 
         Arrays.stream(resolvableType1.getGenerics()).forEach(resolvableType -> {
             System.out.println(resolvableType.getType());

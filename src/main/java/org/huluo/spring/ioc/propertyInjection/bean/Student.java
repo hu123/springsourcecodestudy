@@ -1,4 +1,4 @@
-package org.huluo.spring.ioc.bean;
+package org.huluo.spring.ioc.propertyInjection.bean;
 
 public class Student {
     private String username;
