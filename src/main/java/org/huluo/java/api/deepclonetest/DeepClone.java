@@ -33,6 +33,7 @@ public class DeepClone {
         DeepCloneObject deepCloneObject = new DeepCloneObject();
         deepCloneWrapper.deepCloneObject = deepCloneObject;
         DeepCloneWrapper cloneResult = (DeepCloneWrapper) deepCloneWrapper.clone();
+        //展示成员变量中引用的地址是不一样的,拷贝后的对象和原对象的成员变量引用的地址不再试引用到同一内存地址
         System.out.println(cloneResult.deepCloneObject == deepCloneWrapper.deepCloneObject);
     }
 
