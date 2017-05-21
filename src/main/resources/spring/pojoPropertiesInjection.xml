@@ -6,6 +6,6 @@
 
     <bean id="student" class="org.huluo.spring.ioc.propertyInjection.bean.Student">
         <property name="username" value="zhangsan"/>
-        <property name="password" value="password"/>
+        <property name="password" value="123456"/>
     </bean>
 </beans>
