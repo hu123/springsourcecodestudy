@@ -1,3 +1,4 @@
+package org.huluo.java.api.mysecuritymanager;
 import java.io.FileInputStream;
 import java.io.IOException;
 
