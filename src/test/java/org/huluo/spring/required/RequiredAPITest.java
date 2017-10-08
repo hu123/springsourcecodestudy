@@ -18,6 +18,7 @@ class MySpringConfiguration {
 }
 @Component
 class RequiredAPIEntity{
+    @Value(value = "用户名")
     private String username;
     private String password;
     public String getUsername() {
@@ -32,11 +33,18 @@ class RequiredAPIEntity{
         return password;
     }
     @Required
-//    @Value(value = "helloworld")
+    @Value(value = "helloworld")
     //上面的@Value注解是为了让其为password成员变量赋值的,不然添加了@Required注解不在xml配置文件中配置或者注解驱动里面去配置是会报错的
     public void setPassword(String password) {
         this.password = password;
     }
+}
+@Component
+class ValueAnnotationApplyInClassConstructorParameter{
+    public ValueAnnotationApplyInClassConstructorParameter(@Value("构造函数的值") String val) {
+        System.out.println(val);
+    }
+
 }
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -44,7 +52,8 @@ class RequiredAPIEntity{
 public class RequiredAPITest {
     @Resource
     private RequiredAPIEntity requiredAPIEntity;
-
+    @Resource
+    private ValueAnnotationApplyInClassConstructorParameter valueAnnotationApplyInClassConstructorParameter;
 
     @Test
     public void testName() throws Exception {
