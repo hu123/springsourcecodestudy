@@ -7,6 +7,12 @@ apply plugin: 'war'
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
+ext.p1 = "自定义的项目属性(属性的配置方式)"
+//ext代表的是配置一个gradle工程的项目属性(闭包的方式)
+ext {
+    p2 = "自定义的项目属性(闭包的方式配置)"
+}
+
 repositories {
     maven {url 'http://maven.aliyun.com/nexus/content/groups/public/'}
 }
@@ -20,4 +26,11 @@ dependencies {
     compile (group: 'org.springframework' ,name: 'spring-webflux',version: '5.0.0.RELEASE')
     compile(group: 'javax.servlet',name: 'javax.servlet-api',version: '3.1.0')
     compile(group: 'com.fasterxml.jackson.core',name: 'jackson-databind',version: '2.9.1')
+}
+
+
+//自定义的gradle任务 =>打印gradle的自定义属性的任务
+task printTheGradleProjectProperties << {
+    println p1
+    println p2
 }
