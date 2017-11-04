@@ -7,7 +7,9 @@ import reactor.core.publisher.Mono;
 import java.util.Arrays;
 import java.util.List;
 
-
+/**
+ * @see <a href="http://www.infoq.com/cn/articles/reactor-by-example">http://www.infoq.com/cn/articles/reactor-by-example</a>
+ */
 public class ReactorSnippets {
     private static List<String> words = Arrays.asList(
             "the",
@@ -70,6 +72,29 @@ public class ReactorSnippets {
                 (string, count) -> String.format("%2d. %s", count, string));
 
         flux.subscribe(System.out::println);
-
     }
+
+    /*
+    @Test
+    public void shortCircuit() {
+        Flux<String> helloPauseWorld =
+                Mono.just("Hello")
+                        .concatWith(Mono.just("world")
+                                .delaySubscriptionMillis(500));
+
+        helloPauseWorld.subscribe(System.out::println);
+    }
+
+    @Test
+    public void firstEmitting() {
+        Mono<String> a = Mono.just("oops I'm late")
+                .delaySubscriptionMillis(450);
+        Flux<String> b = Flux.just("let's get", "the party", "started")
+                .delayMillis(400);
+
+        Flux.firstEmitting(a, b)
+                .toIterable()
+                .forEach(System.out::println);
+    }
+    */
 }
