@@ -2,6 +2,7 @@ package org.huluo.reactor;
 
 import org.junit.Test;
 import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
 
 import java.util.Arrays;
 import java.util.List;
@@ -43,6 +44,24 @@ public class ReactorSnippets {
         manyLetters.subscribe(System.out::println);
     }
 
+    /**
+     * @see  #findingMissingLetter() 方法 返回了26个英文字母中除了s的字母,现在我们要将其加进去,可以参照如下写法
+     *
+     */
+    @Test
+    public void restoringMissingLetter() {
+        Mono<String> missing = Mono.just("s");
+        Flux<String> allLetters = Flux
+                .fromIterable(words)
+                .flatMap(word -> Flux.fromArray(word.split("")))
+                .concatWith(missing)
+                .distinct()
+                .sort()
+                .zipWith(Flux.range(1, Integer.MAX_VALUE),
+                        (string, count) -> String.format("%2d. %s", count, string));
+
+        allLetters.subscribe(System.out::println);
+    }
     @Test
     public void testName() throws Exception {
         Flux<String> flux = Flux.just("abc", "aaa");
