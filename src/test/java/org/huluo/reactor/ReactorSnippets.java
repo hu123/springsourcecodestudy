@@ -29,4 +29,28 @@ public class ReactorSnippets {
         System.out.println();
         manyWords.subscribe(System.out::println);
     }
+
+    @Test
+    public void findingMissingLetter() {
+        Flux<String> manyLetters = Flux
+                .fromIterable(words)
+                .flatMap(word -> Flux.fromArray(word.split("")))
+                .distinct()
+                .sort()
+                .zipWith(Flux.range(1, Integer.MAX_VALUE),
+                        (string, count) -> String.format("%2d. %s", count, string));
+
+        manyLetters.subscribe(System.out::println);
+    }
+
+    @Test
+    public void testName() throws Exception {
+        Flux<String> flux = Flux.just("abc", "aaa");
+
+        flux = flux.flatMap(s -> Flux.fromArray(s.split(""))).distinct().sort().zipWith(Flux.range(1, Integer.MAX_VALUE),
+                (string, count) -> String.format("%2d. %s", count, string));
+
+        flux.subscribe(System.out::println);
+
+    }
 }
