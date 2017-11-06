@@ -4,6 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 import java.time.Duration;
@@ -25,5 +26,15 @@ public class SpringWebFluxDemoController1 {
     public Mono<String> delayMono() {
         return Mono.just("myName is huluo ").delaySubscription(Duration.ofSeconds(20));
     }
+
+    @RequestMapping("alphabet5fixed")
+    @ResponseBody
+    public Flux<String> alphabet5fixed() {
+        int from = 1;
+        return Flux.range(from, 10).map(integer -> "" + 6).
+                take(Math.min(5, 'z' - from + 1));
+    }
+
+
 
 }
