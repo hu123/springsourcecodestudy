@@ -6,3 +6,4 @@ build/
 .gradle/
 #test the git fetch
 #test
+out/
