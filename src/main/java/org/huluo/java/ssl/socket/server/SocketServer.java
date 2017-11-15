@@ -5,6 +5,10 @@ import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
 
+/**
+ * 详情参见
+ * {@link  <a>http://blog.csdn.net/zhouzhiwengang/article/details/11030409</a>}
+ */
 public class SocketServer {
 
     private static ServerSocket serverSocket;
