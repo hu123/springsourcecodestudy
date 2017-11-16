@@ -1,4 +1,4 @@
-package org.huluo.java.ssl.socket.server;
+package org.huluo.java.ssl.socket.client;
 
 import java.io.BufferedReader;
 import java.io.IOException;
