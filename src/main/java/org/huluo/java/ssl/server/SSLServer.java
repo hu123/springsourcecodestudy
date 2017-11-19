@@ -54,7 +54,7 @@ public class SSLServer extends Thread {
 
         ServerSocketFactory factory = context.getServerSocketFactory();
         ServerSocket _socket = factory.createServerSocket(8443);
-        ((SSLServerSocket) _socket).setNeedClientAuth(false);
+        ((SSLServerSocket) _socket).setNeedClientAuth(true);
 
         while (true) {
             new SSLServer(_socket.accept()).start();
